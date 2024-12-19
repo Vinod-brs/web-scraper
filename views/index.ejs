@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Node JS Web Scrape</title>
+    <link rel="icon" href="http://203.193.173.125/buildriseshine/favicon.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body >
+    <div id="contt">
+    <header>
+        <div class="d-flex bg-gradient">
+            <div class="d-flex flex-grow-1">
+                <nav class="courseTitle">
+                    <button class="navbar-brand border-0">
+                        <img src="https://vinod-brs.github.io/Meditation/assets/img/logo.png" alt="logo" />
+                    </button>
+                </nav>
+                <div class="flex-grow-1">
+                    <div class="ReactTitle ps-3 d-flex align-items-center">
+                        <img src="https://w7.pngwing.com/pngs/452/24/png-transparent-js-logo-node-logos-and-brands-icon-thumbnail.png" alt="logo" />
+                        <h3 class="mb-0">Node JS Basic Apps</h3>
+                    </div>
+                    <div class="d-flex ps-3 align-items-center">
+                        <div class="flex-grow-1">
+                            <h4>Web Scrape</h4>
+                            <p class="pb-0 mb-0 text-start">Purpose: Node JS Web Scrape - FlipKart products</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><button onclick="setDark()" class="btn btn-success mt-2 ms-3">Dark Mode</button>
+    </header>
+
+    <div class="container">
+        <form action="/">
+            <input placeholder="Search products here..." class="form-control w-50 mx-auto" type="search" name="search" id="abc">
+        </form>
+        <div class="<%= data.length ? '' :  'd-none' %>">
+            <h1 class="text-center display-5 mt-5">Product List</h1>
+            <p class="text-center">FlipKart Products</p>
+        </div>
+        <div class="row mt-5">
+            
+            <% data.forEach(product=> { %>
+                <div class="col-md-4 mb-5">
+                    <div class="card" id="card">
+                        <img style="height: 100%; width: 150px;" src="<%= product.imageURL %>"
+                            class="card-img-top img-fluid mx-auto mt-2" alt="...">
+                        <div class="card-body text-center">
+                            <p class="card-title" data-bs-toggle="tooltip" data-bs-placement="right"
+                                title="<%= product.title %>">
+                                <%= product.title.length> 30 ? product.title.slice(0, 30) + '...' : product.title %>
+                            </p>
+                            <p>Price: <strong>
+                                    <%= product.price %>
+                                </strong> </p>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+        <div id="results" class="<%= data.length ? 'd-none' :  ''%> text-center">
+            <h1 class="text-danger mb-1 mt-5 pt-5">No Products Found</h1>
+            <p class="text-info mb-5 pb-5">Try to serach brands like Samsung, Iphone, Oppo, Tv, Fride etc...</p>
+        </div>
+        
+        
+    </div>
+    </div>
+    
+    
+
+</body>
+
+<footer class="footer footer-dark">
+    <div class="d-flex justify-content-between px-5">
+        <div>ALL RIGHTS RESERVED BRS STUDIO, INDIA</div>
+        <div>
+            <button onclick="setTheme('#1A4B84')" class="theme-switch theme-switch-chathams_blue"></button>
+            <button onclick="setTheme('#991E14')" class="theme-switch theme-switch-tamarillo"></button>
+            <button onclick="setTheme('#FEAD06')" class="theme-switch theme-switch-yellow_sea"></button>
+        </div>
+        <div>
+            <img src="https://vinod-brs.github.io/Meditation/assets/img/footer-logo.png" alt="logo" />
+        </div>
+    </div>
+</footer>
+<script src="assets/js/script.js" defer></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
+
+</html>
