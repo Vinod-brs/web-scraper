@@ -52,8 +52,8 @@ const Home =  async(req, res) => {
 
   }catch(er){
     console.log('Failure')
-    console.log('Re-Starting')
-    Home()
+    console.log(er)
+    // Home()
 
   }
 
